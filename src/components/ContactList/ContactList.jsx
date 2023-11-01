@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { getContacts, getFilter } from 'redux/selectors';
 import { List, Item, ItemName, ItemNumber, Btn } from './ContactList.styled';
-import { deleteContact } from 'redux/contactsSlice';
+import { deleteContact } from 'redux/slice';
 
 export const ContactList = () => {
     const contacts = useSelector(getContacts);
@@ -40,8 +40,3 @@ ContactList.propTypes = {
         }).isRequired
     ),
 };
-
-
-
-
-
