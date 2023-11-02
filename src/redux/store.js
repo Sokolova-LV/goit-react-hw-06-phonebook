@@ -20,9 +20,11 @@ const persistConfig = {
     blacklist: ['filter'],
 };
 
+export const persistContactsReducer = persistReducer(persistConfig, contactsReducer);
+
 export const store = configureStore({
     reducer: {
-        contacts: contactsReducer,
+        contacts: persistContactsReducer,
         filter: filterReducer,
     },
     middleware(getDefaultMiddleware) {
@@ -34,5 +36,4 @@ export const store = configureStore({
     },
 });
 
-export const persistContactsReducer = persistReducer(persistConfig, store.reducer);
 export const persistor = persistStore(store);
